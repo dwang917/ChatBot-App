@@ -22,7 +22,7 @@ class NetworkManager {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer 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", forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer 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", forHTTPHeaderField: "Authorization")
         request.httpBody = requestBody
 
         let (data, response) = try await URLSession.shared.data(for: request)
