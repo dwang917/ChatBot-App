@@ -7,21 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A37451302BCB0753004C741D /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A374512F2BCB0753004C741D /* AudioRecorder.swift */; };
+		A37451342BCCE7B7004C741D /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37451332BCCE7B7004C741D /* ConversationView.swift */; };
+		A37451362BCCF28C004C741D /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37451352BCCF28C004C741D /* InputView.swift */; };
+		A37451392BCCFFE0004C741D /* ChatHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37451382BCCFFE0004C741D /* ChatHistoryView.swift */; };
 		A37AA7182BC4F40F00A689B7 /* ChatBotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37AA7172BC4F40F00A689B7 /* ChatBotApp.swift */; };
 		A37AA71A2BC4F40F00A689B7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37AA7192BC4F40F00A689B7 /* ContentView.swift */; };
 		A37AA71C2BC4F40F00A689B7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37AA71B2BC4F40F00A689B7 /* Item.swift */; };
 		A37AA71E2BC4F41000A689B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A37AA71D2BC4F41000A689B7 /* Assets.xcassets */; };
 		A37AA7212BC4F41000A689B7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A37AA7202BC4F41000A689B7 /* Preview Assets.xcassets */; };
+		A37AA7292BC603D500A689B7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37AA7282BC603D500A689B7 /* NetworkManager.swift */; };
+		A37AA7302BC6099400A689B7 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37AA72F2BC6099400A689B7 /* Message.swift */; };
+		A37AA7322BC60E2400A689B7 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37AA7312BC60E2400A689B7 /* Chat.swift */; };
+		A37AA7342BC6337C00A689B7 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37AA7332BC6337C00A689B7 /* APIResponse.swift */; };
+		A37AA7362BC6559000A689B7 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37AA7352BC6559000A689B7 /* DataModel.swift */; };
+		A37AA7382BC6587700A689B7 /* RequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37AA7372BC6587700A689B7 /* RequestBody.swift */; };
+		A37AA73A2BC659DF00A689B7 /* APIMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37AA7392BC659DF00A689B7 /* APIMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A37AA7142BC4F40F00A689B7 /* ChatBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A374512F2BCB0753004C741D /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		A37451312BCC6347004C741D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A37451332BCCE7B7004C741D /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
+		A37451352BCCF28C004C741D /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		A37451382BCCFFE0004C741D /* ChatHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHistoryView.swift; sourceTree = "<group>"; };
+		A37AA7142BC4F40F00A689B7 /* EchoMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EchoMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37AA7172BC4F40F00A689B7 /* ChatBotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotApp.swift; sourceTree = "<group>"; };
 		A37AA7192BC4F40F00A689B7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A37AA71B2BC4F40F00A689B7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		A37AA71D2BC4F41000A689B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A37AA7202BC4F41000A689B7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A37AA7222BC4F41000A689B7 /* ChatBot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChatBot.entitlements; sourceTree = "<group>"; };
+		A37AA7282BC603D500A689B7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		A37AA72F2BC6099400A689B7 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		A37AA7312BC60E2400A689B7 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		A37AA7332BC6337C00A689B7 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		A37AA7352BC6559000A689B7 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		A37AA7372BC6587700A689B7 /* RequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBody.swift; sourceTree = "<group>"; };
+		A37AA7392BC659DF00A689B7 /* APIMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +58,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A37451322BCCE7A9004C741D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A37451332BCCE7B7004C741D /* ConversationView.swift */,
+				A37451352BCCF28C004C741D /* InputView.swift */,
+				A37451382BCCFFE0004C741D /* ChatHistoryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A37451372BCCF4C7004C741D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A37AA7282BC603D500A689B7 /* NetworkManager.swift */,
+				A374512F2BCB0753004C741D /* AudioRecorder.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		A37AA70B2BC4F40F00A689B7 = {
 			isa = PBXGroup;
 			children = (
@@ -46,7 +88,7 @@
 		A37AA7152BC4F40F00A689B7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A37AA7142BC4F40F00A689B7 /* ChatBot.app */,
+				A37AA7142BC4F40F00A689B7 /* EchoMate.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,9 +98,12 @@
 			children = (
 				A37AA7172BC4F40F00A689B7 /* ChatBotApp.swift */,
 				A37AA7192BC4F40F00A689B7 /* ContentView.swift */,
-				A37AA71B2BC4F40F00A689B7 /* Item.swift */,
+				A37451322BCCE7A9004C741D /* View */,
+				A37451372BCCF4C7004C741D /* Controller */,
+				A37AA72E2BC6093E00A689B7 /* DataModel */,
 				A37AA71D2BC4F41000A689B7 /* Assets.xcassets */,
 				A37AA7222BC4F41000A689B7 /* ChatBot.entitlements */,
+				A37451312BCC6347004C741D /* Info.plist */,
 				A37AA71F2BC4F41000A689B7 /* Preview Content */,
 			);
 			path = ChatBot;
@@ -72,12 +117,26 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		A37AA72E2BC6093E00A689B7 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				A37AA71B2BC4F40F00A689B7 /* Item.swift */,
+				A37AA72F2BC6099400A689B7 /* Message.swift */,
+				A37AA7312BC60E2400A689B7 /* Chat.swift */,
+				A37AA7332BC6337C00A689B7 /* APIResponse.swift */,
+				A37AA7372BC6587700A689B7 /* RequestBody.swift */,
+				A37AA7352BC6559000A689B7 /* DataModel.swift */,
+				A37AA7392BC659DF00A689B7 /* APIMessage.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A37AA7132BC4F40F00A689B7 /* ChatBot */ = {
+		A37AA7132BC4F40F00A689B7 /* EchoMate */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A37AA7252BC4F41000A689B7 /* Build configuration list for PBXNativeTarget "ChatBot" */;
+			buildConfigurationList = A37AA7252BC4F41000A689B7 /* Build configuration list for PBXNativeTarget "EchoMate" */;
 			buildPhases = (
 				A37AA7102BC4F40F00A689B7 /* Sources */,
 				A37AA7112BC4F40F00A689B7 /* Frameworks */,
@@ -87,9 +146,11 @@
 			);
 			dependencies = (
 			);
-			name = ChatBot;
+			name = EchoMate;
+			packageProductDependencies = (
+			);
 			productName = ChatBot;
-			productReference = A37AA7142BC4F40F00A689B7 /* ChatBot.app */;
+			productReference = A37AA7142BC4F40F00A689B7 /* EchoMate.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -107,7 +168,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A37AA70F2BC4F40F00A689B7 /* Build configuration list for PBXProject "ChatBot" */;
+			buildConfigurationList = A37AA70F2BC4F40F00A689B7 /* Build configuration list for PBXProject "EchoMate" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -116,11 +177,13 @@
 				Base,
 			);
 			mainGroup = A37AA70B2BC4F40F00A689B7;
+			packageReferences = (
+			);
 			productRefGroup = A37AA7152BC4F40F00A689B7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A37AA7132BC4F40F00A689B7 /* ChatBot */,
+				A37AA7132BC4F40F00A689B7 /* EchoMate */,
 			);
 		};
 /* End PBXProject section */
@@ -142,9 +205,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A37451362BCCF28C004C741D /* InputView.swift in Sources */,
+				A37451392BCCFFE0004C741D /* ChatHistoryView.swift in Sources */,
+				A37AA7292BC603D500A689B7 /* NetworkManager.swift in Sources */,
+				A37AA7322BC60E2400A689B7 /* Chat.swift in Sources */,
+				A37AA7342BC6337C00A689B7 /* APIResponse.swift in Sources */,
 				A37AA71A2BC4F40F00A689B7 /* ContentView.swift in Sources */,
+				A37AA7302BC6099400A689B7 /* Message.swift in Sources */,
+				A37451302BCB0753004C741D /* AudioRecorder.swift in Sources */,
+				A37AA7382BC6587700A689B7 /* RequestBody.swift in Sources */,
+				A37AA7362BC6559000A689B7 /* DataModel.swift in Sources */,
 				A37AA71C2BC4F40F00A689B7 /* Item.swift in Sources */,
+				A37AA73A2BC659DF00A689B7 /* APIMessage.swift in Sources */,
 				A37AA7182BC4F40F00A689B7 /* ChatBotApp.swift in Sources */,
+				A37451342BCCE7B7004C741D /* ConversationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +355,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ChatBot/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ChatBot/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires microphone access to record audio.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -307,7 +383,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ChatBot/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ChatBot/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires microphone access to record audio.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -324,7 +402,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A37AA70F2BC4F40F00A689B7 /* Build configuration list for PBXProject "ChatBot" */ = {
+		A37AA70F2BC4F40F00A689B7 /* Build configuration list for PBXProject "EchoMate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A37AA7232BC4F41000A689B7 /* Debug */,
@@ -333,7 +411,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A37AA7252BC4F41000A689B7 /* Build configuration list for PBXNativeTarget "ChatBot" */ = {
+		A37AA7252BC4F41000A689B7 /* Build configuration list for PBXNativeTarget "EchoMate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A37AA7262BC4F41000A689B7 /* Debug */,
