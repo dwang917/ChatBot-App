@@ -15,7 +15,7 @@ final class Chat: Identifiable {
     var title: String
     
     @Relationship(deleteRule: .cascade, inverse: \Message.chat)
-    var messages: [Message]
+    var messages: [Message] = []
     
     init(title: String) {
         self.id = UUID()

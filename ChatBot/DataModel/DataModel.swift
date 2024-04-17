@@ -14,7 +14,7 @@ class DataModel {
     
     var prompt: String = "Hello there"
     var conversation: [APIMessage] = []
-    var currentChat: Chat?
+    var currentChat: Chat = Chat(title: "default")
     
     let networkManager = NetworkManager.shared
     let encoder = JSONEncoder()
@@ -32,10 +32,20 @@ class DataModel {
     var requestBody = RequestBody(messages: [APIMessage(role: "system", content: "You are a helpful assistant.")], model: "gpt-3.5-turbo")
     
     func submitPrompt() async {
-        //guard let localModelContext = modelContext else {return}
-        
+        guard let localModelContext = modelContext else {return}
         
         let userMessage = APIMessage(role: "user", content: prompt)
+        
+        let message = Message(role: "user", content: prompt)
+        
+        if currentChat.messages.isEmpty {
+            currentChat.title = prompt
+            currentChat.addMessage(message)
+            localModelContext.insert(currentChat)
+        } else {
+            currentChat.addMessage(message)
+        }
+        
         requestBody.messages.append(userMessage)
         conversation.append(userMessage)
         prompt = ""
@@ -47,6 +57,7 @@ class DataModel {
             let apiResponse = try decoder.decode(APIResponse.self, from: responseData)
             let systemMessage = apiResponse.choices[0].message
             conversation.append(systemMessage)
+            currentChat.addMessage(Message(role: systemMessage.role, content: systemMessage.content))
             
             requestBody.messages.append(systemMessage)
             

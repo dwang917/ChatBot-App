@@ -17,7 +17,7 @@ struct ContentView: View {
 
     var body: some View {
         HSplitView {
-            ChatHistoryView()
+            ChatHistoryView(chats: chats)
                 .frame(minWidth: 80, maxWidth: 300, minHeight:400, maxHeight: .infinity)
             
             VSplitView {
@@ -27,6 +27,11 @@ struct ContentView: View {
                 InputView(dataModel: $dataModel)
                     .frame(minWidth: 300, maxWidth: .infinity, minHeight: 150, maxHeight: .infinity)
                 
+            }
+        }
+        .onAppear() {
+            if dataModel.modelContext == nil {
+                self.dataModel.modelContext = modelContext
             }
         }
     }

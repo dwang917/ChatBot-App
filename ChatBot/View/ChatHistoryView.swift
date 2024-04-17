@@ -9,10 +9,17 @@ import SwiftUI
 import SwiftData
 
 struct ChatHistoryView: View {
-    //var chats: [Chat]
+    var chats: [Chat]
     
     var body: some View {
-        Text("chatHistory")
+        VStack {
+            ForEach(chats) { chat in
+                VStack {
+                    Text(chat.title)
+                }.padding()
+                Divider()
+            }
+        }
     }
 }
 
