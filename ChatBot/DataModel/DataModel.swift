@@ -15,6 +15,11 @@ class DataModel {
     var prompt: String = "Hello there"
     var conversation: [APIMessage] = []
     var currentChat: Chat = Chat(title: "default")
+    var autoSendMessage: Bool = false {
+        didSet {
+            UserDefaults.standard.set(autoSendMessage, forKey: "AutoSendMessage")
+        }
+    }
     
     let networkManager = NetworkManager.shared
     let encoder = JSONEncoder()
@@ -23,10 +28,9 @@ class DataModel {
     let audioController = AudioController()
     var modelContext: ModelContext?
     
-//    init(modelContext: ModelContext) {
-//        self.modelContext = modelContext
-//        self.currentChat = Chat()
-//        }
+    init() {
+        self.autoSendMessage = UserDefaults.standard.bool(forKey: "AutoSendMessage")
+    }
     
     
     var requestBody = RequestBody(messages: [APIMessage(role: "system", content: "You are a helpful assistant.")], model: "gpt-3.5-turbo")
@@ -86,7 +90,13 @@ class DataModel {
         } catch {
             print("sending Audio went wrong")
         }
-        
-        
+    }
+    
+    func deleteChat(_ chat: Chat) {
+        guard let localModelContext = modelContext else {return}
+        if chat == currentChat {
+            currentChat = Chat(title: "default")
+        }
+        localModelContext.delete(chat)
     }
 }

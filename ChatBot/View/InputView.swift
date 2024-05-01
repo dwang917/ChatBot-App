@@ -18,10 +18,17 @@ struct InputView: View {
                 .focused($isInputActive)
                 .padding()
             
+            Toggle("Automatically send message after recording", isOn: $dataModel.autoSendMessage)
+            
             HStack {
                 Button(dataModel.audioController.isRecording ? "Stop Recording" : "Start Recording") {
                     Task {
                         await dataModel.toggleRecording()
+                        
+                        if dataModel.autoSendMessage && !dataModel.audioController.isRecording{
+                            await dataModel.submitPrompt()
+                        }
+                        
                         isInputActive = false
                     }
                 }

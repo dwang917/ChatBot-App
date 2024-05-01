@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ConversationView: View {
     var conversationList: [APIMessage]
-    //var chat: Chat
+    var chat: Chat
     
     var body: some View {
         ScrollView {
@@ -23,6 +23,16 @@ struct ConversationView: View {
                     
                     Divider()
                 }
+                
+//                ForEach(chat.messages) { message in
+//                    VStack(alignment: .center) {
+////                        TextEditor(text: $message.content.trimmingCharacters(in: .newlines))
+//                        Text(message.content.trimmingCharacters(in: .newlines))
+//                            .font(message.role == "user" ? .none : .title3.bold().italic())
+//                    }.padding()
+//                    
+//                    Divider()
+//                }
             }
         }
     }
