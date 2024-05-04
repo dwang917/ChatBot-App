@@ -34,7 +34,7 @@ class NetworkManager {
         return data
     }
     
-    
+    //source https://stackoverflow.com/questions/29623187/upload-image-with-multipart-form-data-ios-in-swift
     func fetchAudioData(with fileUrl: URL) async throws -> String {
         let urlString = "https://api.openai.com/v1/audio/transcriptions"
         guard let url = URL(string: urlString) else {

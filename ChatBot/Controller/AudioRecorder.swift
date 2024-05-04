@@ -7,7 +7,8 @@
 
 import Foundation
 import AVFoundation
-
+//source: https://www.hackingwithswift.com/example-code/media/how-to-record-audio-using-avaudiorecorder
+//https://stackoverflow.com/questions/26472747/recording-audio-in-swift
 @Observable
 class AudioController {
     private var audioRecorder: AVAudioRecorder?

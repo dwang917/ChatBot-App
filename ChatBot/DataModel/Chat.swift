@@ -7,15 +7,19 @@
 
 import Foundation
 import SwiftData
-
+//source: class handouts
 @Model
 final class Chat: Identifiable {
     //timestamp?
     var id: UUID
-    var title: String
+    var title: String = ""
     
     @Relationship(deleteRule: .cascade, inverse: \Message.chat)
     var messages: [Message] = []
+    
+    var sortedMessages: [Message] {
+        return messages.sorted(by: {$0.timestamp! < $1.timestamp!})
+        }
     
     init(title: String) {
         self.id = UUID()
@@ -24,6 +28,8 @@ final class Chat: Identifiable {
     }
 
     func addMessage(_ message: Message) {
+        print("ok")
         messages.append(message)
+        print("ok2")
     }
 }

@@ -11,13 +11,13 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     //TODO: update Query
-    @Query private var chats: [Chat]
+    @Query var chats: [Chat]
     
     @State var dataModel = DataModel()
 
     var body: some View {
         HSplitView {
-            ChatHistoryView(chats: chats, dataModel: dataModel)
+            ChatHistoryView(chats: chats.reversed(), dataModel: dataModel)
                 .frame(minWidth: 80, maxWidth: 300, minHeight:400, maxHeight: .infinity)
             
             VSplitView {
@@ -25,7 +25,7 @@ struct ContentView: View {
                     .frame(minWidth: 200, maxWidth: .infinity, minHeight: 350, maxHeight: .infinity)
                 
                 InputView(dataModel: $dataModel)
-                    .frame(minWidth: 300, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity)
+                    .frame(minWidth: 300, maxWidth: .infinity, minHeight: 180, maxHeight: .infinity)
                 
             }
         }
@@ -35,9 +35,11 @@ struct ContentView: View {
             }
         }
     }
+    
+    
 }
 
-#Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
-}
+//#Preview {
+//    ContentView()
+//        .modelContainer(for: Item.self, inMemory: true)
+//}

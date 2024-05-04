@@ -15,6 +15,7 @@ class DataModel {
     var prompt: String = "Hello there"
     var conversation: [APIMessage] = []
     var currentChat: Chat = Chat(title: "default")
+    var pressAndHold: Bool = false
     var autoSendMessage: Bool = false {
         didSet {
             UserDefaults.standard.set(autoSendMessage, forKey: "AutoSendMessage")
@@ -28,26 +29,38 @@ class DataModel {
     let audioController = AudioController()
     var modelContext: ModelContext?
     
+    var requestBody = RequestBody(messages: [APIMessage(role: "system", content: "You are a helpful assistant.")], model: "gpt-3.5-turbo")
+    
     init() {
         self.autoSendMessage = UserDefaults.standard.bool(forKey: "AutoSendMessage")
     }
     
     
-    var requestBody = RequestBody(messages: [APIMessage(role: "system", content: "You are a helpful assistant.")], model: "gpt-3.5-turbo")
+    
+    
     
     func submitPrompt() async {
+        print("Documents Directory: ", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last ?? "Not Found!")
         guard let localModelContext = modelContext else {return}
         
         let userMessage = APIMessage(role: "user", content: prompt)
         
         let message = Message(role: "user", content: prompt)
         
-        if currentChat.messages.isEmpty {
+        if currentChat.title == "default" {
             currentChat.title = prompt
             currentChat.addMessage(message)
             localModelContext.insert(currentChat)
-        } else {
+        }
+        
+        else if currentChat.title == "New Chat" {
+            currentChat.title = prompt
             currentChat.addMessage(message)
+        }
+        
+        else{
+            currentChat.addMessage(message)
+            //print("yes1")
         }
         
         requestBody.messages.append(userMessage)
@@ -61,15 +74,27 @@ class DataModel {
             let apiResponse = try decoder.decode(APIResponse.self, from: responseData)
             let systemMessage = apiResponse.choices[0].message
             conversation.append(systemMessage)
-            currentChat.addMessage(Message(role: systemMessage.role, content: systemMessage.content))
-            
+            print("1.4")
+            let responseMessage = Message(role: "system", content: systemMessage.content)
+            print("yes1.5")
+            currentChat.addMessage(responseMessage)
+
+            print("yes2")
             requestBody.messages.append(systemMessage)
+//            print("")
+//            for message in requestBody.messages{
+//                print(message.content)
+//            }
+            print("yes3")
+            print("")
             
             
             
         } catch {
             print("Failed to encode request: \(error)")
         }
+        
+        print(currentChat.messages)
     }
     
     func toggleRecording() async {
@@ -92,11 +117,50 @@ class DataModel {
         }
     }
     
+    
+    
     func deleteChat(_ chat: Chat) {
         guard let localModelContext = modelContext else {return}
+        
         if chat == currentChat {
+            localModelContext.delete(chat)
+            prompt = "Hello there"
+            conversation = []
             currentChat = Chat(title: "default")
+            requestBody = RequestBody(messages: [APIMessage(role: "system", content: "You are a helpful assistant.")], model: "gpt-3.5-turbo")
+        } else{
+            localModelContext.delete(chat)
         }
-        localModelContext.delete(chat)
+    }
+    
+    func addNewChat() {
+        guard let localModelContext = modelContext else {return}
+        localModelContext.insert(Chat(title: "New Chat"))
+    }
+    
+    
+    
+    func switchChat(to selectedChat: Chat) {
+        currentChat = selectedChat
+        convertMessagesToConversation(messages: selectedChat.sortedMessages)
+        switchRequestBody()
+        for message in conversation {
+            print(message.content)
+        }
+    }
+    
+    private func convertMessagesToConversation(messages: [Message]) {
+        conversation = []
+        for message in messages {
+            conversation.append(APIMessage(role: message.role, content: message.content))
+        }
+    }
+    
+    private func switchRequestBody(){
+        requestBody = RequestBody(messages: [APIMessage(role: "system", content: "You are a helpful assistant.")], model: "gpt-3.5-turbo")
+        
+        for message in conversation {
+            requestBody.messages.append(message)
+        }
     }
 }

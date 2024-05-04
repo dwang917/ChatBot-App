@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A32D08D72BE32DEF00DA7A45 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D08D62BE32DEF00DA7A45 /* AppSettings.swift */; };
 		A37451302BCB0753004C741D /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A374512F2BCB0753004C741D /* AudioRecorder.swift */; };
 		A37451342BCCE7B7004C741D /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37451332BCCE7B7004C741D /* ConversationView.swift */; };
 		A37451362BCCF28C004C741D /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37451352BCCF28C004C741D /* InputView.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A32D08D62BE32DEF00DA7A45 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		A374512F2BCB0753004C741D /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		A37451312BCC6347004C741D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A37451332BCCE7B7004C741D /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				A37AA7372BC6587700A689B7 /* RequestBody.swift */,
 				A37AA7352BC6559000A689B7 /* DataModel.swift */,
 				A37AA7392BC659DF00A689B7 /* APIMessage.swift */,
+				A32D08D62BE32DEF00DA7A45 /* AppSettings.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				A37AA71A2BC4F40F00A689B7 /* ContentView.swift in Sources */,
 				A37AA7302BC6099400A689B7 /* Message.swift in Sources */,
 				A37451302BCB0753004C741D /* AudioRecorder.swift in Sources */,
+				A32D08D72BE32DEF00DA7A45 /* AppSettings.swift in Sources */,
 				A37AA7382BC6587700A689B7 /* RequestBody.swift in Sources */,
 				A37AA7362BC6559000A689B7 /* DataModel.swift in Sources */,
 				A37AA71C2BC4F40F00A689B7 /* Item.swift in Sources */,

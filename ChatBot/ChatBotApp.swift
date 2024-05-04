@@ -23,11 +23,24 @@ struct ChatBotApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    
+    @StateObject private var settings = AppSettings()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(settings)
         }
         .modelContainer(sharedModelContainer)
+        //source: https://swiftwithmajid.com/2020/11/24/commands-in-swiftui/
+        .commands {
+            CommandMenu("Recording Options") {
+                Picker("Recording Mode", selection: $settings.recordingMode) {
+                    Text("Toggle to record").tag(AppSettings.RecordingMode.toggle)
+                    Text("Press and hold to record").tag(AppSettings.RecordingMode.pressAndHold)
+                }
+                .pickerStyle(.inline)
+            }
+        }
     }
 }

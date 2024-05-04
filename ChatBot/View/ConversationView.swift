@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ConversationView: View {
     var conversationList: [APIMessage]
@@ -16,7 +17,7 @@ struct ConversationView: View {
             VStack(alignment: .leading) {
                 ForEach(conversationList, id: \.self) { message in
                     VStack(alignment: .center) {
-//                        TextEditor(text: $message.content.trimmingCharacters(in: .newlines))
+                        //                        TextEditor(text: $message.content.trimmingCharacters(in: .newlines))
                         Text(message.content.trimmingCharacters(in: .newlines))
                             .font(message.role == "user" ? .none : .title3.bold().italic())
                     }.padding()
@@ -24,11 +25,11 @@ struct ConversationView: View {
                     Divider()
                 }
                 
-//                ForEach(chat.messages) { message in
-//                    VStack(alignment: .center) {
-////                        TextEditor(text: $message.content.trimmingCharacters(in: .newlines))
-//                        Text(message.content.trimmingCharacters(in: .newlines))
-//                            .font(message.role == "user" ? .none : .title3.bold().italic())
+                //                ForEach(chat.sortedMessages, id: \.self) { message in
+                //                    VStack(alignment: .center) {
+                //                        //TextEditor(text: $message.content.trimmingCharacters(in: .newlines))
+                //                        Text(message.content.trimmingCharacters(in: .newlines))
+                //                            .font(message.role == "user" ? .none : .title3.bold().italic())
 //                    }.padding()
 //                    
 //                    Divider()
