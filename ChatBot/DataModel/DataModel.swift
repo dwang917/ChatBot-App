@@ -40,7 +40,6 @@ class DataModel {
     
     
     func submitPrompt() async {
-        print("Documents Directory: ", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last ?? "Not Found!")
         guard let localModelContext = modelContext else {return}
         
         let userMessage = APIMessage(role: "user", content: prompt)
@@ -60,7 +59,6 @@ class DataModel {
         
         else{
             currentChat.addMessage(message)
-            //print("yes1")
         }
         
         requestBody.messages.append(userMessage)
@@ -74,27 +72,13 @@ class DataModel {
             let apiResponse = try decoder.decode(APIResponse.self, from: responseData)
             let systemMessage = apiResponse.choices[0].message
             conversation.append(systemMessage)
-            print("1.4")
             let responseMessage = Message(role: "system", content: systemMessage.content)
-            print("yes1.5")
             currentChat.addMessage(responseMessage)
 
-            print("yes2")
             requestBody.messages.append(systemMessage)
-//            print("")
-//            for message in requestBody.messages{
-//                print(message.content)
-//            }
-            print("yes3")
-            print("")
-            
-            
-            
         } catch {
             print("Failed to encode request: \(error)")
         }
-        
-        print(currentChat.messages)
     }
     
     func toggleRecording() async {
@@ -110,7 +94,7 @@ class DataModel {
         guard let audioURL = audioController.audioFileURL else { return }
         do {
             let resultString = try await networkManager.fetchAudioData(with: audioURL)
-            print(resultString)
+
             prompt = resultString
         } catch {
             print("sending Audio went wrong")
@@ -144,9 +128,7 @@ class DataModel {
         currentChat = selectedChat
         convertMessagesToConversation(messages: selectedChat.sortedMessages)
         switchRequestBody()
-        for message in conversation {
-            print(message.content)
-        }
+        
     }
     
     private func convertMessagesToConversation(messages: [Message]) {

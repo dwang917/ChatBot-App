@@ -28,8 +28,6 @@ final class Chat: Identifiable {
     }
 
     func addMessage(_ message: Message) {
-        print("ok")
         messages.append(message)
-        print("ok2")
     }
 }

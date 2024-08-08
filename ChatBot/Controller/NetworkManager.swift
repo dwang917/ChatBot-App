@@ -6,11 +6,21 @@
 //
 
 import Foundation
+import Cocoa
 
 class NetworkManager {
     static let shared = NetworkManager()
 
     private init() {}
+    
+    private func getAPIKey() -> String? {
+        if let path = Bundle.main.path(forResource: "config", ofType: "plist"),
+           let config = NSDictionary(contentsOfFile: path),
+           let apiKey = config["OPENAI_API_KEY"] as? String {
+            return apiKey
+        }
+        return nil
+    }
 
     func fetchData(with requestBody: Data) async throws -> Data {
         
@@ -22,7 +32,15 @@ class NetworkManager {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer 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", forHTTPHeaderField: "Authorization")
+        
+        if let apiKey = getAPIKey(), !apiKey.isEmpty{
+            request.addValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        } else {
+            DispatchQueue.main.async {
+                self.showAlert(message: "Missing API Key", informativeText: "Please configure your API key in the config file.")
+            }
+        }
+        
         request.httpBody = requestBody
 
         let (data, response) = try await URLSession.shared.data(for: request)
@@ -43,7 +61,14 @@ class NetworkManager {
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.addValue("Bearer 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", forHTTPHeaderField: "Authorization")
+        
+        if let apiKey = getAPIKey(), !apiKey.isEmpty {
+            request.addValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        } else {
+            DispatchQueue.main.async {
+                self.showAlert(message: "Missing API Key", informativeText: "Please configure your API key in the config file.")
+            }
+        }
        
         let boundary = "Boundary-\(UUID().uuidString)"
         request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
@@ -85,6 +110,15 @@ class NetworkManager {
             }
 
         return resultString.trimmingCharacters(in: .newlines)
+    }
+    
+    func showAlert(message: String, informativeText: String) {
+        let alert = NSAlert()
+        alert.messageText = message
+        alert.informativeText = informativeText
+        alert.alertStyle = .warning
+        alert.addButton(withTitle: "OK")
+        alert.runModal()
     }
 }
 
